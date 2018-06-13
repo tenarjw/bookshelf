@@ -1,0 +1,17 @@
+Frontend:
+---------
+
+npx create-react-app react-bookshelf
+
+
+Layout: src/main_layout.js
+
+yarn add exenv
+
+
+yarn add react-router-dom
+yarn add react-router-bootstrap
+yarn add react-bootstrap-table
+yarn add axios
+
+

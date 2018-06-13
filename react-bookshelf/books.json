@@ -1,0 +1,17 @@
+[{
+      'id': '0',
+      'authors': 'Jan Kochanowski',
+      'title': 'Treny',
+      'description': '',
+      'type': 'poetry',
+      'active': 'Y'
+},
+{
+      'id': '1',
+      'authors': 'Adam Mickiewicz',
+      'title': 'Pan Tadeusz',
+      'description': '',
+      'type': 'poetry',
+      'active': 'Y'
+}
+]
