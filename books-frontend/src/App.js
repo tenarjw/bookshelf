@@ -1,31 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { loadBooks } from './store';
+import BookList from './components/BookList'
 
-class App extends Component {
-  componentDidMount() {
-    this.props.loadBooks();
-  }
-
-  render() {
-    return (
-      <div>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+      <BookList />
+  )
 }
 
-const mapStateToProps = (state) => ({
-  data: state
-});
-const mapDispatchToProps = (dispatch) => bindActionCreators(
-  { loadBooks },
-  dispatch
-);
+App.propTypes = {
+  history: PropTypes.object,
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App
