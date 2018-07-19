@@ -13,35 +13,24 @@ class BookCommonForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-          id: -1,
+          id: null,
           authors: '',
           title: ''
         }
   }
 
-  fillForm()  {
-    if (this.state.id !== this.props.id) {
-      this.setState({
-        id: this.props.id,
-        title: this.props.book.title,
-        authors: this.props.book.authors});
-      return true;
-    }
-    return false;
-  }
-
   componentWillReceiveProps = (nextProps) => {
-    this.fillForm();
+    if (this.state.id !== nextProps.id) 
+     if (nextProps.book){
+        this.setState({
+          id: nextProps.id,
+          title: nextProps.book.title,
+          authors: nextProps.book.authors});
+     } else {
+        this.setState({id: nextProps.id});
+     }
   }
 
-/*  componentDidMount = () => {
-    this.fillForm();
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.fillForm() || nextState.title!==this.state.title ||
-    nextState.authors !== this.state.authors;
-  }
-*/
   handleChangeAuthors = (e) => {
     this.setState({ authors: e.target.value });
   }
@@ -52,8 +41,7 @@ class BookCommonForm extends Component {
 
   saveBook = () => {
     if (this.state.id>=0) {
-      this.props.updateBook(this.state.id, this.state);  // poprawa
-    } else {
+      this.props.updateBook(this.state.id, this.state);      } else {
       this.props.createBook(this.state);
     }
   }

@@ -8,16 +8,6 @@ import { loadBooks, selectBook, deleteBook, changeEdState }
 import { BookEdit, BookCreate } from './BookForm';
 
 class BookSelected extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.componentWillReceiveProps=this.componentWillReceiveProps.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-//    this.props.selectBook(this.props.id);
-//      this.setState({id:this.props.id}); // odswiezenie
-    this.setState();// odswiezenie
-  }
 
   swButtonEdit = () => {
     let st = this.props.store.edState;

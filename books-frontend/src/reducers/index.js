@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-//import loginReducer from './counter'
 import booksReducer from './books'
 
 const rootReducer = combineReducers({

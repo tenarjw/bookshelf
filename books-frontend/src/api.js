@@ -1,20 +1,7 @@
 import axios from 'axios';
 import querystring from 'querystring';
 
-//const SERVER = 'http://127.0.0.1:3000/books';
 const SERVER = 'https://books.otwartaedukacja.pl/books';
-
-type Book = {
-  title: string,
-  authors: string,
-  description: string,
-  type: string,
-  active: boolean
-};
-
-type BookWithID = Book & {
-  id: number
-}
 
 const throwError = message => {
   console.error(message);
@@ -22,20 +9,20 @@ const throwError = message => {
   throw Error(message);
 }
 
-export const getBooks = async (): Promise<BookWithID> => {
+export const getBooks = async () => {
   const response = await axios(SERVER);
   if (response.data.errors) throwError(response.data.message);
   return response.data;
 }
 
-export const createBook = async (book: Book): Promise<BookWithID> => {
+export const createBook = async (book) => {
   console.log(book);
   const response = await axios.post(SERVER, querystring.stringify(book));
   if (response.data.errors) throwError(response.data.message);
   return response.data;
 }
 
-export const updateBook = async (id: number, book: Book): Promise<BookWithID> => {
+export const updateBook = async (id, book)=> {
   try {
   alert(SERVER+'/'+id, querystring.stringify(book));
   const response = await axios.put(SERVER+'/'+id, querystring.stringify(book));
@@ -50,7 +37,7 @@ export const updateBook = async (id: number, book: Book): Promise<BookWithID> =>
 }
 }
 
-export const deleteBook = async (id: number): Promise<void> => {
+export const deleteBook = async (id) => {
   const response = await axios.delete(SERVER+'/'+id);
   if (response.data.errors) throwError(response.data.message);
 }
